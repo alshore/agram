@@ -9,7 +9,7 @@ package com.andrew;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static com.andrew.Deck.*;
-import static com.andrew.Player.*;
+import static com.andrew.Card.*;
 
 public class Game{
 
@@ -36,24 +36,9 @@ public class Game{
         for (Player player : players) {
             player.setHand(addHand(dealCards(shuffledDeck), player.getHand()));
         }
-/*
-        int choice = user.playerChoice();
-        System.out.println("You chose " + user.getHandCard(user.getHand(), choice) + ", is this correct (y or n)?");
-        String conf = s.nextLine();
-        while (!(conf.equalsIgnoreCase("y"))) {
-            choice = user.playerChoice();
-            System.out.println("You chose " + user.getHandCard(user.getHand(), choice) + " is this correct (y or n)?");
-            conf = s.nextLine();
-        }
-        user.getHand().remove(choice);
-        ArrayList<String> trick1 = new ArrayList<>();
-        trick1.add(user.getHandCard(user.getHand(), choice));
-        Trick trickOne = new Trick(1, trick1);
-*/
-
 
         for (Player player : players) {
-            for (Card card : user.getHand()) {
+            for (Card card : player.getHand()) {
                 System.out.println("Player " + player.getPlayerNumber() + " cards: " + Card.getCard(card));
             }
         }
@@ -62,5 +47,25 @@ public class Game{
         for (Card card : shuffledDeck) {
             System.out.println(Card.getCard(card));
         }
+
+        int choice = user.playerChoice();
+        String pickedSuit = "";
+        System.out.println("You chose " + user.getHandCard(user.getHand(), choice) + ", is this correct (y for yes)?");
+        String conf = s.nextLine();
+        while (!(conf.equalsIgnoreCase("y"))) {
+            choice = user.playerChoice();
+            System.out.println("You chose " + user.getHandCard(user.getHand(), choice) + " is this correct (y for yes)?");
+            conf = s.nextLine();
+        }
+        user.getHand().remove(choice);
+        ArrayList<String> trick1 = new ArrayList<>();
+        trick1.add(user.getHandCard(user.getHand(), choice));
+        Trick trickOne = new Trick(1, user, trick1);
+        for (int i = 0; i <= 4; i++) {
+            if (players.get(i).getHand().) {
+
+            }
+        }
+
     }
 }

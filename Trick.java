@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Trick {
 
     private int trickNumber;
+    private Player player;
     private ArrayList playedCards = new ArrayList<>();
 
     public int getTrickNumber() {
@@ -20,8 +21,9 @@ public class Trick {
         this.playedCards = playedCards;
     }
 
-    Trick(int trickNumber, ArrayList<String> playedCards) {
+    Trick(int trickNumber, Player player, ArrayList<String> playedCards) {
         this.trickNumber = trickNumber;
         this.playedCards = playedCards;
+        this.player = player;
     }
 }
